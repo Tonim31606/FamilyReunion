@@ -15,10 +15,12 @@ Partial Public Class Member
 
     <Required>
     <StringLength(20)>
+    <Display(Name:="First Name")>
     Public Property FirstName As String
 
     <Required>
     <StringLength(30)>
+    <Display(Name:="Last Name")>
     Public Property LastName As String
 
     Public Overridable Property MemberRelationships As ICollection(Of MemberRelationship)
