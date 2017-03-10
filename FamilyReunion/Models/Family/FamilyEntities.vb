@@ -21,8 +21,8 @@ Partial Public Class FamilyEntities
             .WillCascadeOnDelete(False)
 
         modelBuilder.Entity(Of Member)() _
-            .HasMany(Function(e) e.MemberRelationships1) _
-            .WithRequired(Function(e) e.Member1) _
+            .HasMany(Function(e) e.RelatedMemersRelationships) _
+            .WithRequired(Function(e) e.RelagedMember) _
             .HasForeignKey(Function(e) e.RelatedMemberID) _
             .WillCascadeOnDelete(False)
     End Sub

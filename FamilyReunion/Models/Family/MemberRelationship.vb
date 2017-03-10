@@ -20,5 +20,5 @@ Partial Public Class MemberRelationship
 
     Public Overridable Property Member As Member
 
-    Public Overridable Property Member1 As Member
+    Public Overridable Property RelagedMember As Member
 End Class

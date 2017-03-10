@@ -8,7 +8,7 @@ Imports System.Data.Entity.Spatial
 Partial Public Class Member
     Public Sub New()
         MemberRelationships = New HashSet(Of MemberRelationship)()
-        MemberRelationships1 = New HashSet(Of MemberRelationship)()
+        RelatedMemersRelationships = New HashSet(Of MemberRelationship)()
     End Sub
 
     Public Property MemberId As Guid
@@ -23,5 +23,5 @@ Partial Public Class Member
 
     Public Overridable Property MemberRelationships As ICollection(Of MemberRelationship)
 
-    Public Overridable Property MemberRelationships1 As ICollection(Of MemberRelationship)
+    Public Overridable Property RelatedMemersRelationships As ICollection(Of MemberRelationship)
 End Class
