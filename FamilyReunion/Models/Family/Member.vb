@@ -10,8 +10,8 @@ Partial Public Class Member
         MemberRelationships = New HashSet(Of MemberRelationship)()
         RelatedMemersRelationships = New HashSet(Of MemberRelationship)()
     End Sub
-
-    Public Property MemberId As Guid
+    <Key>
+    Public Property MemberId As Guid = Guid.NewGuid
 
     <Required>
     <StringLength(20)>
