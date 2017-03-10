@@ -12,6 +12,7 @@ Partial Public Class FamilyEntities
 
     Public Overridable Property Members As DbSet(Of Member)
     Public Overridable Property MemberRelationships As DbSet(Of MemberRelationship)
+    Public Overridable Property PhoneNumbers As DbSet(Of PhoneNumber)
 
     Protected Overrides Sub OnModelCreating(ByVal modelBuilder As DbModelBuilder)
         modelBuilder.Entity(Of Member)() _
@@ -25,5 +26,7 @@ Partial Public Class FamilyEntities
             .WithRequired(Function(e) e.RelagedMember) _
             .HasForeignKey(Function(e) e.RelatedMemberID) _
             .WillCascadeOnDelete(False)
+
+
     End Sub
 End Class

@@ -210,11 +210,20 @@
       <DependentUpon>201703100422481_Initial DB.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201703100422481_Initial DB.vb" />
+    <Compile Include="Migrations\201703100625209_Add Member phone numbers.Designer.vb">
+      <DependentUpon>201703100625209_Add Member phone numbers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703100625209_Add Member phone numbers.vb" />
+    <Compile Include="Migrations\201703100632482_Private Phone numbers.Designer.vb">
+      <DependentUpon>201703100632482_Private Phone numbers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703100632482_Private Phone numbers.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\Family\FamilyEntities.vb" />
     <Compile Include="Models\Family\Member.vb" />
     <Compile Include="Models\Family\MemberRelationship.vb" />
+    <Compile Include="Models\Family\PhoneNumber.vb" />
     <Compile Include="Models\IdentityModels.vb" />
     <Compile Include="Models\ManageViewModels.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -238,6 +247,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201703100422481_Initial DB.resx">
       <DependentUpon>201703100422481_Initial DB.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703100625209_Add Member phone numbers.resx">
+      <DependentUpon>201703100625209_Add Member phone numbers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703100632482_Private Phone numbers.resx">
+      <DependentUpon>201703100632482_Private Phone numbers.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
