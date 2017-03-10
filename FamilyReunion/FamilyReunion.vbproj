@@ -202,6 +202,7 @@
     <Compile Include="App_Start\Startup.Auth.vb" />
     <Compile Include="Controllers\AccountController.vb" />
     <Compile Include="Controllers\ManageController.vb" />
+    <Compile Include="Controllers\MembersController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -312,6 +313,11 @@
     <Content Include="Views\Shared\_LoginPartial.vbhtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Views\Members\Create.vbhtml" />
+    <Content Include="Views\Members\Delete.vbhtml" />
+    <Content Include="Views\Members\Details.vbhtml" />
+    <Content Include="Views\Members\Edit.vbhtml" />
+    <Content Include="Views\Members\Index.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
