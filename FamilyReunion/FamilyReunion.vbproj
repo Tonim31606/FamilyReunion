@@ -205,6 +205,11 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703100422481_Initial DB.Designer.vb">
+      <DependentUpon>201703100422481_Initial DB.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703100422481_Initial DB.vb" />
+    <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\Family\FamilyEntities.vb" />
     <Compile Include="Models\Family\Member.vb" />
@@ -230,6 +235,9 @@
     <Compile Include="Startup.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201703100422481_Initial DB.resx">
+      <DependentUpon>201703100422481_Initial DB.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
