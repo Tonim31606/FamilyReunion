@@ -3,16 +3,17 @@ Imports System.Data.Entity
 Imports System.Data.Entity.Migrations
 Imports System.Linq
 
-Namespace Migrations
+Namespace Migrations.Application
 
-    Friend NotInheritable Class Configuration 
-        Inherits DbMigrationsConfiguration(Of FamilyEntities)
+    Friend NotInheritable Class ApplicationMigrationConfiguration
+        Inherits DbMigrationsConfiguration(Of ApplicationDbContext)
 
         Public Sub New()
             AutomaticMigrationsEnabled = False
+            MigrationsDirectory = "Migrations\Application"
         End Sub
 
-        Protected Overrides Sub Seed(context As FamilyEntities)
+        Protected Overrides Sub Seed(context As ApplicationDbContext)
             '  This method will be called after migrating to the latest version.
 
             '  You can use the DbSet(Of T).AddOrUpdate() helper extension method 

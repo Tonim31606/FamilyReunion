@@ -206,19 +206,28 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703100422481_Initial DB.Designer.vb">
+    <Compile Include="Migrations\Application\201703121558485_Inital DB.Designer.vb">
+      <DependentUpon>201703121558485_Inital DB.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Application\201703121558485_Inital DB.vb" />
+    <Compile Include="Migrations\Application\201703121606546_Link Member to user.Designer.vb">
+      <DependentUpon>201703121606546_Link Member to user.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Application\201703121606546_Link Member to user.vb" />
+    <Compile Include="Migrations\Application\ApplicationMigrationConfiguration.vb" />
+    <Compile Include="Migrations\Family\201703100422481_Initial DB.Designer.vb">
       <DependentUpon>201703100422481_Initial DB.vb</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703100422481_Initial DB.vb" />
-    <Compile Include="Migrations\201703100625209_Add Member phone numbers.Designer.vb">
+    <Compile Include="Migrations\Family\201703100422481_Initial DB.vb" />
+    <Compile Include="Migrations\Family\201703100625209_Add Member phone numbers.Designer.vb">
       <DependentUpon>201703100625209_Add Member phone numbers.vb</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703100625209_Add Member phone numbers.vb" />
-    <Compile Include="Migrations\201703100632482_Private Phone numbers.Designer.vb">
+    <Compile Include="Migrations\Family\201703100625209_Add Member phone numbers.vb" />
+    <Compile Include="Migrations\Family\201703100632482_Private Phone numbers.Designer.vb">
       <DependentUpon>201703100632482_Private Phone numbers.vb</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703100632482_Private Phone numbers.vb" />
-    <Compile Include="Migrations\Configuration.vb" />
+    <Compile Include="Migrations\Family\201703100632482_Private Phone numbers.vb" />
+    <Compile Include="Migrations\Family\FamilyMigrationConfiguration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\Family\FamilyEntities.vb" />
     <Compile Include="Models\Family\Member.vb" />
@@ -245,13 +254,19 @@
     <Compile Include="Startup.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703100422481_Initial DB.resx">
+    <EmbeddedResource Include="Migrations\Application\201703121558485_Inital DB.resx">
+      <DependentUpon>201703121558485_Inital DB.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Application\201703121606546_Link Member to user.resx">
+      <DependentUpon>201703121606546_Link Member to user.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Family\201703100422481_Initial DB.resx">
       <DependentUpon>201703100422481_Initial DB.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703100625209_Add Member phone numbers.resx">
+    <EmbeddedResource Include="Migrations\Family\201703100625209_Add Member phone numbers.resx">
       <DependentUpon>201703100625209_Add Member phone numbers.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703100632482_Private Phone numbers.resx">
+    <EmbeddedResource Include="Migrations\Family\201703100632482_Private Phone numbers.resx">
       <DependentUpon>201703100632482_Private Phone numbers.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
