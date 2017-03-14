@@ -214,6 +214,10 @@
       <DependentUpon>201703121606546_Link Member to user.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Application\201703121606546_Link Member to user.vb" />
+    <Compile Include="Migrations\Application\201703122320126_Remove MemberID from user..Designer.vb">
+      <DependentUpon>201703122320126_Remove MemberID from user..vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Application\201703122320126_Remove MemberID from user..vb" />
     <Compile Include="Migrations\Application\ApplicationMigrationConfiguration.vb" />
     <Compile Include="Migrations\Family\201703100422481_Initial DB.Designer.vb">
       <DependentUpon>201703100422481_Initial DB.vb</DependentUpon>
@@ -259,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Application\201703121606546_Link Member to user.resx">
       <DependentUpon>201703121606546_Link Member to user.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Application\201703122320126_Remove MemberID from user..resx">
+      <DependentUpon>201703122320126_Remove MemberID from user..vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Family\201703100422481_Initial DB.resx">
       <DependentUpon>201703100422481_Initial DB.vb</DependentUpon>

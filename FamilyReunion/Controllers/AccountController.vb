@@ -136,7 +136,13 @@ Public Class AccountController
             }
             Dim result = Await UserManager.CreateAsync(user, model.Password)
             If result.Succeeded Then
-                Await SignInManager.SignInAsync(user, isPersistent := False, rememberBrowser := False)
+                Await SignInManager.SignInAsync(user, isPersistent:=False, rememberBrowser:=False)
+                Using family As New FamilyEntities
+                    family.Members.Add(New Member With {.MemberId = Guid.Parse(user.Id),
+                                       .FirstName = model.MemberFirstName,
+                                       .LastName = model.MemberLastName})
+                    family.SaveChanges()
+                End Using
 
                 ' For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                 ' Send an email with this link
