@@ -203,6 +203,8 @@
     <Compile Include="Controllers\AccountController.vb" />
     <Compile Include="Controllers\ManageController.vb" />
     <Compile Include="Controllers\MembersController.vb" />
+    <Compile Include="Controllers\PhoneNumbersController.vb" />
+    <Compile Include="extensionmethods.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -241,6 +243,7 @@
     <Compile Include="Models\Family\Member.vb" />
     <Compile Include="Models\Family\MemberRelationship.vb" />
     <Compile Include="Models\Family\PhoneNumber.vb" />
+    <Compile Include="Models\Family\ViewModels.vb" />
     <Compile Include="Models\IdentityModels.vb" />
     <Compile Include="Models\ManageViewModels.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -362,6 +365,13 @@
     <Content Include="Views\Members\Details.vbhtml" />
     <Content Include="Views\Members\Edit.vbhtml" />
     <Content Include="Views\Members\Index.vbhtml" />
+    <Content Include="Views\Shared\PhoneList.vbhtml" />
+    <Content Include="Views\Shared\PhoneListEdit.vbhtml" />
+    <Content Include="Views\PhoneNumbers\Create.vbhtml" />
+    <Content Include="Views\PhoneNumbers\Delete.vbhtml" />
+    <Content Include="Views\PhoneNumbers\Details.vbhtml" />
+    <Content Include="Views\PhoneNumbers\Edit.vbhtml" />
+    <Content Include="Views\PhoneNumbers\Index.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

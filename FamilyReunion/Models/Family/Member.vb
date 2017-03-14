@@ -24,6 +24,12 @@ Partial Public Class Member
     <Display(Name:="Last Name")>
     Public Property LastName As String
 
+    ReadOnly Property Name As String
+        Get
+            Return $"{FirstName} {LastName}"
+        End Get
+    End Property
+
     Public Overridable Property MemberRelationships As ICollection(Of MemberRelationship)
 
     Public Overridable Property RelatedMemersRelationships As ICollection(Of MemberRelationship)

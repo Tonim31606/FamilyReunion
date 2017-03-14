@@ -16,7 +16,7 @@ End Code
         <th>
             @Html.DisplayNameFor(Function(model) model.LastName)
         </th>
-        <th></th>
+        <th> </th>
     </tr>
 
 @For Each item In Model

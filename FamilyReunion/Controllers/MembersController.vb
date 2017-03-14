@@ -8,12 +8,25 @@ Imports System.Net
 Imports System.Web
 Imports System.Web.Mvc
 Imports FamilyReunion
+Imports Microsoft.AspNet.Identity
+Imports Microsoft.AspNet.Identity.Owin
 
 Namespace Controllers
     Public Class MembersController
         Inherits System.Web.Mvc.Controller
 
         Private db As New FamilyEntities
+
+        ReadOnly Property currentUser As ApplicationUser
+            Get
+                Dim usr As ApplicationUser = Nothing
+                Dim um = System.Web.HttpContext.Current.GetOwinContext().GetUserManager(Of ApplicationUserManager)()
+                If User IsNot Nothing Then
+                    usr = um.FindById(User.Identity.GetUserId())
+                End If
+                Return usr
+            End Get
+        End Property
 
         ' GET: Members
         Async Function Index() As Task(Of ActionResult)
@@ -29,7 +42,16 @@ Namespace Controllers
             If IsNothing(member) Then
                 Return HttpNotFound()
             End If
-            Return View(member)
+
+
+
+            Return View(New ViewModels.MemberDetailsViewModel With {.Member = member,
+                        .IsCurrentUser = IsCurrentUser(member)})
+
+        End Function
+
+        Private Function IsCurrentUser(member As Member) As Boolean
+            Return Guid.Parse(If(currentUser?.Id, Guid.Empty.ToString)) = member.MemberId
         End Function
 
         ' GET: Members/Create
@@ -57,11 +79,14 @@ Namespace Controllers
             If IsNothing(id) Then
                 Return New HttpStatusCodeResult(HttpStatusCode.BadRequest)
             End If
+
             Dim member As Member = Await db.Members.FindAsync(id)
             If IsNothing(member) Then
                 Return HttpNotFound()
             End If
-            Return View(member)
+            Dim vm As New ViewModels.MemberEditViewModel(member)
+            vm.IsCurrentUser = IsCurrentUser(member)
+            Return View(vm)
         End Function
 
         ' POST: Members/Edit/5
@@ -69,9 +94,9 @@ Namespace Controllers
         'more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Async Function Edit(<Bind(Include:="MemberId,FirstName,LastName")> ByVal member As Member) As Task(Of ActionResult)
+        Async Function Edit(<Bind(Include:="Member.MemberId,Member.FirstName,Member.LastName")> ByVal member As ViewModels.MemberEditViewModel) As Task(Of ActionResult)
             If ModelState.IsValid Then
-                db.Entry(member).State = EntityState.Modified
+                db.Entry(member.Member).State = EntityState.Modified
                 Await db.SaveChangesAsync()
                 Return RedirectToAction("Index")
             End If
