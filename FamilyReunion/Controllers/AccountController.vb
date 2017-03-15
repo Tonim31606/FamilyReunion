@@ -25,7 +25,7 @@ Public Class AccountController
             Return If(_signInManager, HttpContext.GetOwinContext().[Get](Of ApplicationSignInManager)())
         End Get
         Private Set
-            _signInManager = value
+            _signInManager = Value
         End Set
     End Property
 
@@ -34,7 +34,7 @@ Public Class AccountController
             Return If(_userManager, HttpContext.GetOwinContext().GetUserManager(Of ApplicationUserManager)())
         End Get
         Private Set
-            _userManager = value
+            _userManager = Value
         End Set
     End Property
 
@@ -58,7 +58,7 @@ Public Class AccountController
 
         ' This doesn't count login failures towards account lockout
         ' To enable password failures to trigger account lockout, change to shouldLockout := True
-        Dim result = Await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout := False)
+        Dim result = Await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout:=False)
         Select Case result
             Case SignInStatus.Success
                 Return RedirectToLocal(returnUrl)
@@ -104,7 +104,7 @@ Public Class AccountController
         ' If a user enters incorrect codes for a specified amount of time then the user account 
         ' will be locked out for a specified amount of time. 
         ' You can configure the account lockout settings in IdentityConfig
-        Dim result = Await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent := model.RememberMe, rememberBrowser := model.RememberBrowser)
+        Dim result = Await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:=model.RememberMe, rememberBrowser:=model.RememberBrowser)
         Select Case result
             Case SignInStatus.Success
                 Return RedirectToLocal(model.ReturnUrl)
@@ -290,7 +290,7 @@ Public Class AccountController
         If Not Await SignInManager.SendTwoFactorCodeAsync(model.SelectedProvider) Then
             Return View("Error")
         End If
-        Return RedirectToAction("VerifyCode", New With { _
+        Return RedirectToAction("VerifyCode", New With {
             .Provider = model.SelectedProvider,
             .ReturnUrl = model.ReturnUrl,
             .RememberMe = model.RememberMe
@@ -307,7 +307,7 @@ Public Class AccountController
         End If
 
         ' Sign in the user with this external login provider if the user already has a login
-        Dim result = Await SignInManager.ExternalSignInAsync(loginInfo, isPersistent := False)
+        Dim result = Await SignInManager.ExternalSignInAsync(loginInfo, isPersistent:=False)
         Select Case result
             Case SignInStatus.Success
                 Return RedirectToLocal(returnUrl)
@@ -335,28 +335,28 @@ Public Class AccountController
     <ValidateAntiForgeryToken>
     Public Async Function ExternalLoginConfirmation(model As ExternalLoginConfirmationViewModel, returnUrl As String) As Task(Of ActionResult)
         If User.Identity.IsAuthenticated Then
-          Return RedirectToAction("Index", "Manage")
+            Return RedirectToAction("Index", "Manage")
         End If
 
         If ModelState.IsValid Then
-          ' Get the information about the user from the external login provider
-          Dim info = Await AuthenticationManager.GetExternalLoginInfoAsync()
-          If info Is Nothing Then
-              Return View("ExternalLoginFailure")
-          End If
-          Dim userInfo = New ApplicationUser() With {
-              .UserName = model.Email,
-              .Email = model.Email
-          }
-          Dim result = Await UserManager.CreateAsync(userInfo)
-          If result.Succeeded Then
-            result = Await UserManager.AddLoginAsync(userInfo.Id, info.Login)
-            If result.Succeeded Then
-                Await SignInManager.SignInAsync(userInfo, isPersistent := False, rememberBrowser := False)
-                Return RedirectToLocal(returnUrl)
+            ' Get the information about the user from the external login provider
+            Dim info = Await AuthenticationManager.GetExternalLoginInfoAsync()
+            If info Is Nothing Then
+                Return View("ExternalLoginFailure")
             End If
-          End If
-          AddErrors(result)
+            Dim userInfo = New ApplicationUser() With {
+                .UserName = model.Email,
+                .Email = model.Email
+            }
+            Dim result = Await UserManager.CreateAsync(userInfo)
+            If result.Succeeded Then
+                result = Await UserManager.AddLoginAsync(userInfo.Id, info.Login)
+                If result.Succeeded Then
+                    Await SignInManager.SignInAsync(userInfo, isPersistent:=False, rememberBrowser:=False)
+                    Return RedirectToLocal(returnUrl)
+                End If
+            End If
+            AddErrors(result)
         End If
 
         ViewData!ReturnUrl = returnUrl
@@ -394,7 +394,7 @@ Public Class AccountController
         MyBase.Dispose(disposing)
     End Sub
 
-    #Region "Helpers"
+#Region "Helpers"
     ' Used for XSRF protection when adding external logins
     Private Const XsrfKey As String = "XsrfId"
 
@@ -438,10 +438,10 @@ Public Class AccountController
                 .RedirectUri = RedirectUri
             }
             If UserId IsNot Nothing Then
-              properties.Dictionary(XsrfKey) = UserId
+                properties.Dictionary(XsrfKey) = UserId
             End If
             context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider)
         End Sub
     End Class
-    #End Region
+#End Region
 End Class
