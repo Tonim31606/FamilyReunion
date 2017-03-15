@@ -23,7 +23,7 @@ Partial Public Class FamilyEntities
 
         modelBuilder.Entity(Of Member)() _
             .HasMany(Function(e) e.RelatedMemersRelationships) _
-            .WithRequired(Function(e) e.RelagedMember) _
+            .WithRequired(Function(e) e.RelatedMember) _
             .HasForeignKey(Function(e) e.RelatedMemberID) _
             .WillCascadeOnDelete(False)
 
