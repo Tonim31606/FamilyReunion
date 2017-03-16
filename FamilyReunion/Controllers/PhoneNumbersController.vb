@@ -8,6 +8,7 @@ Imports System.Net
 Imports System.Web
 Imports System.Web.Mvc
 Imports FamilyReunion
+Imports System.Data.Entity.Validation
 
 Namespace Controllers
     Public Class PhoneNumbersController
@@ -65,6 +66,10 @@ Namespace Controllers
                     Await db.SaveChangesAsync()
                     TempData.Add("Created", True)
                     Return RedirectToAction("Create", New With {.MemberID = phoneNumber.MemberID})
+                Catch ex As DbEntityValidationException
+                    'I know these look the same but the right extension method is called because ex is not just an exception.  
+                    TempData.Add("Created", False)
+                    TempData.Add("ErrMsg", String.Join("  ", ex.FullExceptionMessages))
                 Catch ex As Exception
                     TempData.Add("Created", False)
                     TempData.Add("ErrMsg", String.Join("  ", ex.FullExceptionMessages))

@@ -2,6 +2,8 @@ Imports System
 Imports System.Data.Entity
 Imports System.ComponentModel.DataAnnotations.Schema
 Imports System.Linq
+Imports System.Data.Entity.Infrastructure
+Imports System.Data.Entity.Validation
 
 Partial Public Class FamilyEntities
     Inherits DbContext
@@ -29,4 +31,22 @@ Partial Public Class FamilyEntities
 
 
     End Sub
+
+    Protected Overrides Function ValidateEntity(entityEntry As DbEntityEntry, items As IDictionary(Of Object, Object)) As DbEntityValidationResult
+        Dim valid As New List(Of DbValidationError)
+        If TypeOf entityEntry.Entity Is PhoneNumber Then
+
+            Dim phone As PhoneNumber = CType(entityEntry.Entity, PhoneNumber)
+            If PhoneNumbers.Count(Function(p) p.Phone = phone.Phone AndAlso p.MemberID = phone.MemberID) = 1 Then
+                valid.Add(New DbValidationError(NameOf(phone.Phone), "Phone numbers are unique per member."))
+            End If
+
+        Else
+            Return MyBase.ValidateEntity(entityEntry, items)
+        End If
+        Return New DbEntityValidationResult(entityEntry, valid)
+
+    End Function
+
+
 End Class
