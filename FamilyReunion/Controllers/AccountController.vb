@@ -61,6 +61,7 @@ Public Class AccountController
         Dim result = Await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout:=False)
         Select Case result
             Case SignInStatus.Success
+
                 Return RedirectToLocal(returnUrl)
             Case SignInStatus.LockedOut
                 Return View("Lockout")
@@ -137,12 +138,7 @@ Public Class AccountController
             Dim result = Await UserManager.CreateAsync(user, model.Password)
             If result.Succeeded Then
                 Await SignInManager.SignInAsync(user, isPersistent:=False, rememberBrowser:=False)
-                Using family As New FamilyEntities
-                    family.Members.Add(New Member With {.MemberId = Guid.Parse(user.Id),
-                                       .FirstName = model.MemberFirstName,
-                                       .LastName = model.MemberLastName})
-                    family.SaveChanges()
-                End Using
+                CreateMember(model, user)
 
                 ' For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                 ' Send an email with this link
@@ -158,6 +154,15 @@ Public Class AccountController
         ' If we got this far, something failed, redisplay form
         Return View(model)
     End Function
+
+    Private Sub CreateMember(model As RegisterViewModel, user As ApplicationUser)
+        Using family As New FamilyEntities
+            family.Members.Add(New Member With {.MemberId = Guid.Parse(user.Id),
+                               .FirstName = model.MemberFirstName,
+                               .LastName = model.MemberLastName})
+            family.SaveChanges()
+        End Using
+    End Sub
 
     '
     ' GET: /Account/ConfirmEmail
