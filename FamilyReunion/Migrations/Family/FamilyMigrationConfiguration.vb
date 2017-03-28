@@ -25,17 +25,6 @@ Namespace Migrations
             '       New Customer() With {.FullName = "Brice Lambson"},
             '       New Customer() With {.FullName = "Rowan Miller"})
 
-
-            'Dim Jay As Member = New Member With {.FirstName = "Jay", .LastName = "Asbury"}
-            'context.Members.AddOrUpdate(Function(m) New With {m.FirstName, m.LastName},
-            '                            Jay,
-            '                            New Member With {.FirstName = "Nina", .LastName = "Asbury"})
-
-
-
-            'context.PhoneNumbers.AddOrUpdate(Function(p) New With {p.MemberID, p.Phone},
-            '                                     New PhoneNumber With {.MemberID = Jay.MemberId, .Phone = "3361234567", .PhoneType = "Home", .IsPrivate = False},
-            '                                     New PhoneNumber With {.MemberID = Jay.MemberId, .Phone = "3367654321", .PhoneType = "Cell", .IsPrivate = True})
         End Sub
 
     End Class
