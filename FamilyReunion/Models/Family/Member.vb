@@ -10,6 +10,7 @@ Partial Public Class Member
         MemberRelationships = New HashSet(Of MemberRelationship)()
         RelatedMemersRelationships = New HashSet(Of MemberRelationship)()
         PhoneNumbers = New HashSet(Of PhoneNumber)
+        Addresses = New HashSet(Of Address)
     End Sub
     <Key>
     Public Property MemberId As Guid = Guid.NewGuid
@@ -35,4 +36,5 @@ Partial Public Class Member
     Public Overridable Property RelatedMemersRelationships As ICollection(Of MemberRelationship)
 
     Public Overridable Property PhoneNumbers As ICollection(Of PhoneNumber)
+    Public Overridable Property Addresses As ICollection(Of Address)
 End Class

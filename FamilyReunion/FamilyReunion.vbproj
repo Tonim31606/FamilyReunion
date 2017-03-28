@@ -250,8 +250,13 @@
       <DependentUpon>201703140256455_Allow no duplicate phone numbers per member.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Family\201703140256455_Allow no duplicate phone numbers per member.vb" />
+    <Compile Include="Migrations\Family\201703280236346_Add Member Addresses.Designer.vb">
+      <DependentUpon>201703280236346_Add Member Addresses.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Family\201703280236346_Add Member Addresses.vb" />
     <Compile Include="Migrations\Family\FamilyMigrationConfiguration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
+    <Compile Include="Models\Family\Address.vb" />
     <Compile Include="Models\Family\FamilyEntities.vb" />
     <Compile Include="Models\Family\Member.vb" />
     <Compile Include="Models\Family\MemberRelationship.vb" />
@@ -298,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Family\201703140256455_Allow no duplicate phone numbers per member.resx">
       <DependentUpon>201703140256455_Allow no duplicate phone numbers per member.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Family\201703280236346_Add Member Addresses.resx">
+      <DependentUpon>201703280236346_Add Member Addresses.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
