@@ -13,6 +13,7 @@ Partial Public Class Member
         Addresses = New HashSet(Of Address)
     End Sub
     <Key>
+    <DatabaseGenerated(DatabaseGeneratedOption.Identity)>
     Public Property MemberId As Guid = Guid.NewGuid
 
     <Required>
