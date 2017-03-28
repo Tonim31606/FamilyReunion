@@ -64,7 +64,7 @@ Namespace Controllers
         'more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Async Function Create(<Bind(Include:="MemberId,FirstName,LastName")> ByVal member As Member) As Task(Of ActionResult)
+        Async Function Create(<Bind(Include:="MemberId,FirstName,LastName, AscendantsFirstName")> ByVal member As Member) As Task(Of ActionResult)
             If ModelState.IsValid Then
                 member.MemberId = Guid.NewGuid()
                 db.Members.Add(member)

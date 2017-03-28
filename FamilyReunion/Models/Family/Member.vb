@@ -26,6 +26,12 @@ Partial Public Class Member
     <Display(Name:="Last Name")>
     Public Property LastName As String
 
+    <Required>
+    <Display(Name:="Ascendants First Name")>
+    <MaxLength(30)>
+    Public Property AscendantsFirstName As String
+
+
     ReadOnly Property Name As String
         Get
             Return $"{FirstName} {LastName}"
@@ -37,5 +43,6 @@ Partial Public Class Member
     Public Overridable Property RelatedMemersRelationships As ICollection(Of MemberRelationship)
 
     Public Overridable Property PhoneNumbers As ICollection(Of PhoneNumber)
+
     Public Overridable Property Addresses As ICollection(Of Address)
 End Class

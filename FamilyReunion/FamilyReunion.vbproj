@@ -250,6 +250,10 @@
       <DependentUpon>201703140256455_Allow no duplicate phone numbers per member.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Family\201703140256455_Allow no duplicate phone numbers per member.vb" />
+    <Compile Include="Migrations\Family\201703200241584_Add AscendantsFirstName to member.Designer.vb">
+      <DependentUpon>201703200241584_Add AscendantsFirstName to member.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Family\201703200241584_Add AscendantsFirstName to member.vb" />
     <Compile Include="Migrations\Family\201703280236346_Add Member Addresses.Designer.vb">
       <DependentUpon>201703280236346_Add Member Addresses.vb</DependentUpon>
     </Compile>
@@ -307,6 +311,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Family\201703140256455_Allow no duplicate phone numbers per member.resx">
       <DependentUpon>201703140256455_Allow no duplicate phone numbers per member.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Family\201703200241584_Add AscendantsFirstName to member.resx">
+      <DependentUpon>201703200241584_Add AscendantsFirstName to member.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Family\201703280236346_Add Member Addresses.resx">
       <DependentUpon>201703280236346_Add Member Addresses.vb</DependentUpon>

@@ -79,6 +79,11 @@ Public Class RegisterViewModel
     <MaxLength(30)>
     Property MemberLastName As String
 
+    <Display(Name:="Ascendants First Name")>
+    <Required>
+    <MaxLength(30)>
+    Property AscendantsFirstName As String
+
 End Class
 
 Public Class ResetPasswordViewModel
